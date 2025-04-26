@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
-    <!-- Nombre de la tienda -->
     <TextView
         android:id="@+id/tvStoreName"
         android:layout_width="wrap_content"
@@ -21,97 +20,64 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Iconos de usuario, favoritos, carrito -->
-    <ImageView
-        android:id="@+id/ivUserIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/profile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivFavoriteIcon"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"/>
+    <LinearLayout
+        android:id="@+id/titleDescriptionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/impacto_ecologico"
+            android:textColor="@color/primer_color_texto"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/parrafo1"
+            android:textColor="@color/primer_color_texto"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/ivFavoriteIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/heart"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivCartIcon"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"/>
-
-    <ImageView
-        android:id="@+id/ivCartIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/shopping_cart"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Imagen lateral -->
-
-    <!-- Título Impacto Ecológico -->
-
-    <ImageView
-        android:id="@+id/ivSideImage"
+        android:id="@+id/ivCenteredImage"
         android:layout_width="175dp"
         android:layout_height="328dp"
-        android:layout_margin="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/toallas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
-        app:layout_constraintVertical_bias="0.066" />
-
-    <!-- Texto de descripción -->
-
-    <!-- Botón Conoce más -->
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="182dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/impacto_ecologico"
-        android:textColor="@color/primer_color_texto"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ivSideImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="168dp"
-        android:layout_height="242dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/parrafo1"
-        android:textColor="@color/primer_color_texto"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/ivSideImage"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:src="@drawable/toallas"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/titleDescriptionContainer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnLearnMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/cuarto_color"
         android:text="@string/conoce_mas"
         android:textColor="@color/primer_color_texto"
         app:cornerRadius="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
