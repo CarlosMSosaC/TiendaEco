@@ -38,6 +38,9 @@
         <activity android:name=".CartaProductos"
             android:exported="false"/>
 
+        <activity android:name=".CarritoProductos"
+            android:exported="false"/>
+
 
     </application>
 
