@@ -2,8 +2,6 @@ package com.example.tiendaeco;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, Formulario.class);
+                Intent intent = new Intent(HomeActivity.this, FormularioRegistro.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, FormularioRegistro.class);
+                Intent intent = new Intent(HomeActivity.this, FormularioIngreso.class);
                 startActivity(intent);
             }
         });

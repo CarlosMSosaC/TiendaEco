@@ -29,10 +29,10 @@
         <activity android:name=".HomeActivity"
             android:exported="false"/>
 
-        <activity android:name=".Formulario"
+        <activity android:name=".FormularioRegistro"
             android:exported="false"/>
 
-        <activity android:name=".FormularioRegistro"
+        <activity android:name=".FormularioIngreso"
             android:exported="false"/>
 
         <activity android:name=".CartaProductos"
