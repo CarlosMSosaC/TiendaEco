@@ -2,5 +2,10 @@
     <string name="app_name">Tienda-Eco</string>
     <string name="impacto_ecologico">Impacto Ecológico</string>
     <string name="parrafo1">Debido al impacto ambiental siendo las acciones humanas las que modifican el ambiente, Tienda-ECO\nse compromete a elaborar sus productos de manera artesanal y con materiales que favorecen al cuidado del medio ambiente.</string>
-    <string name="conoce_mas">Conoce más</string>
+    <string name="log_in">Ingresar</string>
+    <string name="registro">Registrate</string>
+    <string name="registro_titulo">Ingresa Tus Datos</string>
+    <string name="nombre">Nombre - Apellidos</string>
+    <string name="correo">Correo</string>
+    <string name="contrasena">Contraseña</string>
 </resources>
