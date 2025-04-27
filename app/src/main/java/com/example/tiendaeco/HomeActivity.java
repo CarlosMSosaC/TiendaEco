@@ -29,9 +29,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        Button btnLogin = findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, FormularioRegistro.class);
+                startActivity(intent);
+            }
+        });
+
     }
-
-
-
-
 }

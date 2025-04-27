@@ -32,6 +32,9 @@
         <activity android:name=".Formulario"
             android:exported="false"/>
 
+        <activity android:name=".FormularioRegistro"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

@@ -8,4 +8,8 @@
     <string name="nombre">Nombre - Apellidos</string>
     <string name="correo">Correo</string>
     <string name="contrasena">Contraseña</string>
+    <string name="telefono">Telefono</string>
+    <string name="direccion">Direccion</string>
+
+
 </resources>
