@@ -5,4 +5,5 @@
     <color name="tercer_color">#BABD8D</color>
     <color name="cuarto_color">#FA9500</color>
     <color name="primer_color_texto">#7C6A0A</color>
+    <color name="segundo_color_texto">#FFFFFF</color>
 </resources>

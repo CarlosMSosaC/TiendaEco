@@ -35,6 +35,10 @@
         <activity android:name=".FormularioRegistro"
             android:exported="false"/>
 
+        <activity android:name=".CartaProductos"
+            android:exported="false"/>
+
+
     </application>
 
 </manifest>

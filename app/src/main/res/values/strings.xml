@@ -4,12 +4,17 @@
     <string name="parrafo1">Debido al impacto ambiental siendo las acciones humanas las que modifican el ambiente, Tienda-ECO\nse compromete a elaborar sus productos de manera artesanal y con materiales que favorecen al cuidado del medio ambiente.</string>
     <string name="log_in">Ingresar</string>
     <string name="registro">Registrate</string>
+    <string name="agregar">Agregar</string>
     <string name="registro_titulo">Ingresa Tus Datos</string>
     <string name="nombre">Nombre - Apellidos</string>
     <string name="correo">Correo</string>
     <string name="contrasena">Contraseña</string>
     <string name="telefono">Telefono</string>
     <string name="direccion">Direccion</string>
+    <string name="SeccionCuidado">Cuidado de la Salud</string>
+    <string name="SeccionDecoracion">Decoración del Hogar</string>
+    <string name="Cepillo">Cepillo de bambú</string>
+    <string name="DescripcionCepillo">Paquete de 2 unidades\nMaterial: Bambú 100% natural\nDuración: 3 meses\nRespetuoso con el medio ambiente</string>
 
 
 </resources>
