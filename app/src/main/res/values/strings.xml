@@ -17,5 +17,6 @@
     <string name="DescripcionCepillo">Paquete de 2 unidades\nMaterial: Bambú 100% natural\nDuración: 3 meses\nRespetuoso con el medio ambiente</string>
     <string name="Eliminar">Eliminar</string>
     <string name="Comprar">Comprar</string>
+    <string name="IngresoGoogle">Ingresar con Google</string>
 
 </resources>
