@@ -21,7 +21,7 @@ import com.example.tiendaeco.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaProductosFragment extends Fragment {
+public class ListaProductosFragment extends Fragment implements OnProductoAgregadoListener {
 
     private RecyclerView recyclerView;
     private ProductoAdapter adapter;
@@ -44,7 +44,7 @@ public class ListaProductosFragment extends Fragment {
 
         cargarProductos(); // Llena la lista con 4 productos
 
-        adapter = new ProductoAdapter(getContext(), listaProductos, (OnProductoAgregadoListener) getActivity());
+        adapter = new ProductoAdapter(getContext(), listaProductos, this);
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -54,34 +54,41 @@ public class ListaProductosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        ImageView ivCart = view.findViewById(R.id.ivCart);  // Buscar en la vista del fragmento
+        TextView cartItemCount = view.findViewById(R.id.cartItemCount);
 
-        if (activity != null) {
-            // Accede al icono del carrito en la Activity
-            ImageView ivCart = activity.findViewById(R.id.ivCart);
-            if (ivCart != null) {
-                ivCart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(activity, ActivityCarrito.class);
-                        activity.startActivity(intent);
-                    }
-                });
-            }
+        if (ivCart != null) {
+            ivCart.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), ActivityCarrito.class);
+                startActivity(intent);
+            });
+        }
 
-            // Actualiza el contador del carrito
-            TextView cartItemCount = activity.findViewById(R.id.cartItemCount);
-            if (cartItemCount != null) {
-                int total = CarritoProductos.obtenerProductos().size();
-                if (total > 0) {
-                    cartItemCount.setText(String.valueOf(total));
-                    cartItemCount.setVisibility(View.VISIBLE);
-                } else {
-                    cartItemCount.setVisibility(View.GONE);
-                }
+        if (cartItemCount != null) {
+            int total = CarritoProductos.obtenerProductos().size();
+            if (total > 0) {
+                cartItemCount.setText(String.valueOf(total));
+                cartItemCount.setVisibility(View.VISIBLE);
+            } else {
+                cartItemCount.setVisibility(View.GONE);
             }
         }
     }
+
+    @Override
+    public void onProductoAgregado() {
+        TextView cartItemCount = getView().findViewById(R.id.cartItemCount);
+        int total = CarritoProductos.obtenerProductos().size();
+        if (cartItemCount != null) {
+            if (total > 0) {
+                cartItemCount.setText(String.valueOf(total));
+                cartItemCount.setVisibility(View.VISIBLE);
+            } else {
+                cartItemCount.setVisibility(View.GONE);
+            }
+        }
+    }
+
 
     private void cargarProductos() {
         listaProductos = new ArrayList<>();

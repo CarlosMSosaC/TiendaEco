@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarritoProductos {
-    private static List<Producto> productosCarrito = new ArrayList<>();
+    private static List<Producto> productosEnCarrito = new ArrayList<>();
 
     public static void agregarProducto(Producto producto) {
-        productosCarrito.add(producto);
+        productosEnCarrito.add(producto);
     }
 
     public static List<Producto> obtenerProductos() {
-        return new ArrayList<>(productosCarrito); // evitar referencia directa
+        return productosEnCarrito; // evitar referencia directa
     }
 
-    public static void vaciarCarrito() {
-        productosCarrito.clear();
+    public static void eliminarProducto(Producto producto) {
+        productosEnCarrito.remove(producto);
+    }
+
+    public static void limpiarCarrito() {
+        productosEnCarrito.clear();
     }
 }

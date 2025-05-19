@@ -16,7 +16,8 @@ public class CartaProductos extends AppCompatActivity implements OnProductoAgreg
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_productos); // este layout debe contener un FrameLayout
+        setContentView(R.layout.activity_lista_productos);
+        cartItemCount = findViewById(R.id.cartItemCount);
 
         // Cargar el fragmento de productos
         cargarFragmento(new ListaProductosFragment());

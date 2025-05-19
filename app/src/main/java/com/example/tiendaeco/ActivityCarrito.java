@@ -12,7 +12,7 @@ import java.util.List;
 public class ActivityCarrito extends AppCompatActivity {
 
     private RecyclerView recyclerCarrito;
-    private ProductoAdapter adapter;
+    private CarritoAdapter adapter;
     private List<Producto> productosEnCarrito;
     private TextView tvTotal;
 
@@ -28,8 +28,7 @@ public class ActivityCarrito extends AppCompatActivity {
 
         // Obtener productos del carrito
         productosEnCarrito = CarritoProductos.obtenerProductos();
-
-        adapter = new ProductoAdapter(this, productosEnCarrito, null);
+        adapter = new CarritoAdapter(this, productosEnCarrito);
         recyclerCarrito.setAdapter(adapter);
 
         mostrarTotal();
@@ -44,6 +43,15 @@ public class ActivityCarrito extends AppCompatActivity {
         if (tvTotal != null) {
             tvTotal.setText("Total: $" + String.format("%.2f", total));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Actualizar lista cuando se vuelve a mostrar la activity
+        productosEnCarrito.clear();
+        productosEnCarrito.addAll(CarritoProductos.obtenerProductos());
+        adapter.notifyDataSetChanged();
     }
 }
 
