@@ -37,5 +37,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        Button btnMapa = findViewById(R.id.btnMapa);
+
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, MapaActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

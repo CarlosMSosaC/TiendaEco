@@ -18,5 +18,10 @@
     <string name="Eliminar">Eliminar</string>
     <string name="Comprar">Comprar</string>
     <string name="IngresoGoogle">Ingresar con Google</string>
+    <string name="Ubicacion1">Ubicacion 1</string>
+    <string name="Ubicacion2">Ubicacion 2</string>
+    <string name="Ubicacion3">Ubicacion 3</string>
+    <string name="Mapa">Mapa Tiendas</string>
+
 
 </resources>
