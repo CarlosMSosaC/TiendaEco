@@ -16,9 +16,7 @@
         android:theme="@style/Theme.TiendaEco"
         tools:targetApi="31">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD44fcdw_1slzWbaQx1uaWLikU2ZqL4Ins"/>
+
 
 
         <activity
