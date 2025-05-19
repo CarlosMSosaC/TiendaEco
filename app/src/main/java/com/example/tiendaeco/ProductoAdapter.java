@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.example.tiendaeco.OnProductoAgregadoListener;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -16,9 +19,12 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
     private Context context;
     private List<Producto> listaProductos;
 
-    public ProductoAdapter(Context context, List<Producto> listaProductos) {
+    private OnProductoAgregadoListener listener;
+
+    public ProductoAdapter(Context context, List<Producto> listaProductos, OnProductoAgregadoListener listener) {
         this.context = context;
         this.listaProductos = listaProductos;
+        this.listener = listener;
     }
 
     @NonNull
@@ -35,7 +41,23 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         holder.tvDescripcion.setText(producto.getDescripcion());
         holder.tvPrecio.setText("Precio: $" + producto.getPrecio());
         holder.imagenProducto.setImageResource(producto.getImagen());
+
+        holder.btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CarritoProductos.agregarProducto(producto);
+                Toast.makeText(context, producto.getNombre() + " agregado al carrito", Toast.LENGTH_SHORT).show();
+                if (listener != null){
+                    listener.onProductoAgregado();
+                }
+            }
+        });
+
+
     }
+
+
+
 
     @Override
     public int getItemCount() {
@@ -56,6 +78,9 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             btnAgregar = itemView.findViewById(R.id.btnAgregar);
         }
     }
+
+
+
 }
 
 

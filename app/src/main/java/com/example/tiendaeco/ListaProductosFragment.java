@@ -38,7 +38,8 @@ public class ListaProductosFragment extends Fragment {
 
         cargarProductos(); // Llena la lista con 4 productos
 
-        adapter = new ProductoAdapter(getContext(), listaProductos);
+        adapter = new ProductoAdapter(getContext(), listaProductos, (OnProductoAgregadoListener) getActivity());
+
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -49,7 +50,9 @@ public class ListaProductosFragment extends Fragment {
         listaProductos.add(new Producto("Cepillo de Bambú", "Cepillo ecológico", 10.99, R.drawable.toothbrush));
         listaProductos.add(new Producto("Serum Facial", "Hecho con aceites esenciales", 7.50, R.drawable.serum));
         listaProductos.add(new Producto("Silla de bambú", "100% orgánico", 4.99, R.drawable.wood_chair));
-        listaProductos.add(new Producto("Espejo de pared", "Mantiene bebidas frías/calientes", 15.00, R.drawable.mirror));
+        listaProductos.add(new Producto("Espejo de pared", "Espejo de 30cm de diametro", 15.00, R.drawable.mirror));
     }
+
+
 }
 

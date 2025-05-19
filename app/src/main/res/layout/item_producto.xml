@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     app:cardCornerRadius="16dp"
@@ -8,10 +8,10 @@
     android:backgroundTint="@android:color/transparent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/producto_background"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -19,59 +19,48 @@
             android:id="@+id/imagen_producto"
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/producto_carta"
             android:scaleType="centerCrop"
             android:src="@drawable/toothbrush" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
 
         <TextView
             android:id="@+id/nombre_producto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="8dp"
             android:text="@string/Cepillo"
             android:textColor="@color/primer_color_texto"
             android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/descripcion_producto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
             android:text="@string/DescripcionCepillo"
-            android:textColor="@color/primer_color_texto" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:textColor="@color/primer_color_texto"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/precio_producto"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_green_dark" />
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
 
         <Button
             android:id="@+id/btnAgregar"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="120dp"
             android:backgroundTint="@color/cuarto_color"
             android:text="@string/agregar"
             android:textColor="@color/primer_color_texto"
             android:textStyle="bold"
             app:cornerRadius="50dp" />
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
