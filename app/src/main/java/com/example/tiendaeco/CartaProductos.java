@@ -1,7 +1,9 @@
 package com.example.tiendaeco;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +18,6 @@ public class CartaProductos extends AppCompatActivity implements OnProductoAgreg
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_productos); // este layout debe contener un FrameLayout
 
-        cartItemCount = findViewById(R.id.cartItemCount); // Debes tener un TextView con este ID junto al icono de carrito
-        actualizarContadorCarrito(); // Mostrar el contador al iniciar
-
         // Cargar el fragmento de productos
         cargarFragmento(new ListaProductosFragment());
     }
@@ -30,7 +29,7 @@ public class CartaProductos extends AppCompatActivity implements OnProductoAgreg
                 .commit();
     }
 
-    // Método para actualizar el contador del carrito
+    // Metodo para actualizar el contador del carrito
     public void actualizarContadorCarrito() {
         int total = CarritoProductos.obtenerProductos().size();
         if (total > 0) {

@@ -14,7 +14,7 @@ public class CarritoProductos {
         return new ArrayList<>(productosCarrito); // evitar referencia directa
     }
 
-    public static void limpiarCarrito() {
+    public static void vaciarCarrito() {
         productosCarrito.clear();
     }
 }

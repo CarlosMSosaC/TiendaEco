@@ -56,9 +56,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
     }
 
-
-
-
     @Override
     public int getItemCount() {
         return listaProductos.size();
@@ -78,9 +75,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             btnAgregar = itemView.findViewById(R.id.btnAgregar);
         }
     }
-
-
-
 }
 
 
