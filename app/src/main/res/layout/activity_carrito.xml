@@ -5,7 +5,7 @@
 
     <!-- Contenedor para el fragmento -->
     <FrameLayout
-        android:id="@+id/contenedor_fragmento"
+        android:id="@+id/contenedor_fragmento_carrito"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
