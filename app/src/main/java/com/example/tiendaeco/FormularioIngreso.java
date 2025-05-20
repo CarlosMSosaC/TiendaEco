@@ -19,6 +19,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import android.content.SharedPreferences;
+
 
 public class FormularioIngreso extends AppCompatActivity {
 
@@ -27,24 +29,43 @@ public class FormularioIngreso extends AppCompatActivity {
     private static final int RC_SIGN_IN = 123;
     private static final String TAG = "GoogleSignIn";
 
+    private EditText etCorreo, etContrasena;
+    private Button btnIngresar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_ingreso);
 
-        Button btnIngresar = findViewById(R.id.btnIngresar);
+        etCorreo = findViewById(R.id.etCorreo);
+        etContrasena = findViewById(R.id.etContrasena);
+        btnIngresar = findViewById(R.id.btnIngresar);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FormularioIngreso.this, CartaProductos.class);
-                startActivity(intent);
+                String correoIngresado = etCorreo.getText().toString().trim();
+                String contrasenaIngresada = etContrasena.getText().toString().trim();
 
-                EditText etCorreo = findViewById(R.id.etCorreo);
-                EditText etContrasena = findViewById(R.id.etContrasena);
+                Cliente clienteGuardado = ClientePrefs.obtenerCliente(FormularioIngreso.this);
 
-                etCorreo.setText("");  // Limpiar el campo de correo
-                etContrasena.setText("");  // Limpiar el campo de contraseña
+                if (clienteGuardado != null &&
+                        clienteGuardado.getCorreo().equals(correoIngresado) &&
+                        clienteGuardado.getContrasena().equals(contrasenaIngresada)) {
+
+                    Toast.makeText(FormularioIngreso.this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(FormularioIngreso.this, CartaProductos.class);
+                    intent.putExtra("USER_EMAIL", clienteGuardado.getCorreo());
+                    intent.putExtra("USER_NAME", clienteGuardado.getNombreCompleto());
+                    startActivity(intent);
+
+                    etCorreo.setText("");
+                    etContrasena.setText("");
+
+                } else {
+                    Toast.makeText(FormularioIngreso.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -60,7 +81,7 @@ public class FormularioIngreso extends AppCompatActivity {
         btnGoogle = findViewById(R.id.btnIngresarGoogle);
 
         btnGoogle.setOnClickListener(v -> signIn());
-    } //cierra Override
+    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -85,17 +106,20 @@ public class FormularioIngreso extends AppCompatActivity {
             Log.d(TAG, "signInSuccess: " + account.getEmail());
             Toast.makeText(this, "Bienvenido " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
 
-            // Ir a MainActivity
+            // GUARDAR EL NOMBRE EN SHARED PREFERENCES
+            SharedPreferences prefs = getSharedPreferences("clientes_prefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("nombre", account.getDisplayName());
+            editor.apply();
+
             Intent intent = new Intent(this, CartaProductos.class);
             intent.putExtra("USER_EMAIL", account.getEmail());
             intent.putExtra("USER_NAME", account.getDisplayName());
             startActivity(intent);
 
         } catch (ApiException e) {
-            // Error en el inicio de sesión
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode(), e);
             Toast.makeText(this, "Error al iniciar sesión con Google", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

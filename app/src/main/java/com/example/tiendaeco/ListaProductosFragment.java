@@ -1,6 +1,8 @@
 package com.example.tiendaeco;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +28,8 @@ public class ListaProductosFragment extends Fragment implements OnProductoAgrega
     private RecyclerView recyclerView;
     private ProductoAdapter adapter;
     private List<Producto> listaProductos;
+
+    private TextView tvNombreCliente;
 
     public ListaProductosFragment() {
         // Constructor vacío obligatorio
@@ -56,6 +60,12 @@ public class ListaProductosFragment extends Fragment implements OnProductoAgrega
 
         ImageView ivCart = view.findViewById(R.id.ivCart);  // Buscar en la vista del fragmento
         TextView cartItemCount = view.findViewById(R.id.cartItemCount);
+
+        // Aquí agregamos el TextView para el nombre del cliente
+        TextView tvNombreCliente = view.findViewById(R.id.tvNombreCliente);
+        SharedPreferences prefs = requireContext().getSharedPreferences("clientes_prefs", Context.MODE_PRIVATE);
+        String nombre = prefs.getString("nombre", "Cliente");
+        tvNombreCliente.setText(nombre);
 
         if (ivCart != null) {
             ivCart.setOnClickListener(v -> {
