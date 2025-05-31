@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class CartaProductos extends AppCompatActivity implements OnProductoAgregadoListener {
+public class CartaProductos extends AppCompatActivity implements OnProductoAgregadoListener, OnProductoEliminadoListener {
 
     private TextView cartItemCount;
 
@@ -45,7 +45,10 @@ public class CartaProductos extends AppCompatActivity implements OnProductoAgreg
         actualizarContadorCarrito();
     }
 
-
+    @Override
+    public void onProductoEliminado() {
+        actualizarContadorCarrito();
+    }
 
 }
 

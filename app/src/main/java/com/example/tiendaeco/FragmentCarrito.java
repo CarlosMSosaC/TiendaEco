@@ -47,7 +47,21 @@ public class FragmentCarrito extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<Producto> productos = CarritoProductos.obtenerProductos();
-        adapter = new CarritoAdapter(getContext(), productos, () -> mostrarTotal(productos));
+
+        final OnProductoEliminadoListener listener;
+
+        if (getActivity() instanceof OnProductoEliminadoListener) {
+            listener = (OnProductoEliminadoListener) getActivity();
+        } else {
+            listener = null;
+        }
+
+        adapter = new CarritoAdapter(getContext(), productos, () -> {
+            mostrarTotal(productos);   // actualiza el total
+            if (listener != null) {
+                listener.onProductoEliminado(); // actualiza el contador en la activity
+            }
+        });
 
         recyclerView.setAdapter(adapter);
 
