@@ -1,31 +1,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
+
     <TextView
         android:id="@+id/tvStoreName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="57dp"
+        android:padding="16dp"
         android:text="@string/app_name"
         android:textColor="@color/primer_color_texto"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvNombreCliente"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivProfile"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/tvNombreCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="36dp"
+        android:breakStrategy="simple"
+        android:hyphenationFrequency="normal"
+        android:maxLines="2"
         android:text="Usuario"
         android:textColor="@color/primer_color_texto"
         android:textSize="16sp"
@@ -70,11 +75,13 @@
         android:id="@+id/recycler_productos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="8dp"
         android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
