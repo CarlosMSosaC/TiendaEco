@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@color/background_color"
-    tools:context=".Activities.CameraActivity">
+    tools:context=".CameraActivity">
 
     <ImageView
         android:id="@+id/imageView"

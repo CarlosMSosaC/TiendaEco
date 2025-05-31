@@ -1,9 +1,11 @@
 package com.example.tiendaeco;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,15 @@ public class FragmentCarrito extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_carrito);
         tvTotal = view.findViewById(R.id.tvTotal);
+
+        ImageView ivCart = view.findViewById(R.id.ivHeart);
+        if (ivCart != null) {
+            ivCart.setOnClickListener(v -> {
+                // 👉 Redirigir a la ActivityCamera
+                Intent intent = new Intent(getActivity(), CameraActivity.class);
+                startActivity(intent);
+            });
+        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

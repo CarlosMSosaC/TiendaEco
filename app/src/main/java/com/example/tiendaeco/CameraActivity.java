@@ -46,23 +46,16 @@ public class CameraActivity extends AppCompatActivity {
         btnTakePhoto = findViewById(R.id.btnTakePhoto);
         btnOpenCamera = findViewById(R.id.btnOpenCamera);
 
-        btnTakePhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkCameraPermission()) {
-                    dispatchTakePictureIntent();
-                } else {
-                    requestCameraPermission();
-                }
+        btnTakePhoto.setOnClickListener(v -> {
+            if (checkCameraPermission()) {
+                dispatchTakePictureIntent();
+            } else {
+                requestCameraPermission();
             }
         });
 
-        btnOpenCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGallery();
-            }
-        });
+
+        btnOpenCamera.setOnClickListener(v -> openGallery());
     }
 
     private boolean checkCameraPermission() {

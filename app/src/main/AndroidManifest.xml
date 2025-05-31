@@ -67,6 +67,12 @@
         <activity android:name=".ActivityCarrito"
             android:exported="false"/>
 
+        <activity android:name=".CameraActivity"
+            android:exported="false"/>
+
+        <activity android:name=".PhotoGalleryActivity"
+            android:exported="false"/>
+
 
     </application>
 

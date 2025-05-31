@@ -17,6 +17,7 @@ import com.example.tiendaeco.R;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.io.FileFilter;
 
 public class PhotoGalleryActivity extends AppCompatActivity {
 
