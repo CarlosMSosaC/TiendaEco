@@ -47,7 +47,8 @@ public class FragmentCarrito extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<Producto> productos = CarritoProductos.obtenerProductos();
-        adapter = new CarritoAdapter(getContext(), productos);
+        adapter = new CarritoAdapter(getContext(), productos, () -> mostrarTotal(productos));
+
         recyclerView.setAdapter(adapter);
 
         mostrarTotal(productos);

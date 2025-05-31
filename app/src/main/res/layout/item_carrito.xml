@@ -52,6 +52,14 @@
             android:textStyle="bold"
             android:layout_marginBottom="12dp"/>
 
+        <Button
+            android:id="@+id/btnEliminarProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Eliminar"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textColor="@android:color/white"/>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
