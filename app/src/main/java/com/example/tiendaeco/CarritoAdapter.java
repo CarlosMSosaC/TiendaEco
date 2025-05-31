@@ -20,6 +20,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
     private OnProductoEliminadoListener listener;
 
 
+
     public CarritoAdapter(Context context, List<Producto> productos, OnProductoEliminadoListener listener) {
         this.context = context;
         this.productos = productos;
@@ -41,7 +42,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
         holder.tvPrecio.setText("Precio: $" + producto.getPrecio());
         holder.imagenProducto.setImageResource(producto.getImagen());
 
-        holder.btnEliminar.setOnClickListener(v -> {
+        holder.btnEliminarProducto.setOnClickListener(v -> {
             productos.remove(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(position, productos.size());
@@ -59,6 +60,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
     public static class CarritoViewHolder extends RecyclerView.ViewHolder {
         ImageView imagenProducto;
         TextView tvNombre, tvDescripcion, tvPrecio;
+        Button btnEliminarProducto;
 
         public CarritoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,7 +68,11 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
             tvNombre = itemView.findViewById(R.id.nombre_producto);
             tvDescripcion = itemView.findViewById(R.id.descripcion_producto);
             tvPrecio = itemView.findViewById(R.id.precio_producto);
-            btnEliminar = itemView.findViewById(R.id.btnEliminarProducto);
+            btnEliminarProducto  = itemView.findViewById(R.id.btnEliminarProducto);
         }
+    }
+
+    public interface OnProductoEliminadoListener {
+        void onProductoEliminado();
     }
 }
