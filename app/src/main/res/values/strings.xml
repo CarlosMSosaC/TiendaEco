@@ -22,6 +22,7 @@
     <string name="Ubicacion2">Ubicacion 2</string>
     <string name="Ubicacion3">Ubicacion 3</string>
     <string name="Mapa">Mapa Tiendas</string>
-
-
+    <string name="captured_image">Captura</string>
+    <string name="Tomar_Foto">Tomar Foto</string>
+    <string name="Ver_Galeria">Ver Galeria</string>
 </resources>
