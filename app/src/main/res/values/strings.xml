@@ -25,4 +25,8 @@
     <string name="captured_image">Captura</string>
     <string name="Tomar_Foto">Tomar Foto</string>
     <string name="Ver_Galeria">Ver Galeria</string>
+    <string name="Mis_Fotos">Mis Fotos</string>
+    <string name="Sin_Fotos">No hay fotos</string>
+    <string name="Miniatura_de_foto">Miniatura de foto</string>
+
 </resources>
